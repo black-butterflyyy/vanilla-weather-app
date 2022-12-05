@@ -35,8 +35,7 @@ a {
 }
 
 .weather-container {
-  width: 60vw;
-  height: 90vh;
+  width: 70vw;
   background-color: #fff;
   margin: 90px auto;
   box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
@@ -101,24 +100,38 @@ a {
   margin-left: 10px;
 }
 
-.unit {
-  color: #212121;
+.units {
   font-size: 18px;
-  font-weight: 400;
-  line-height: 36px;
-  line-height: 1;
-  position: relative;
-  top: -34px;
 }
-
-.unit:first-of-type {
-  border-right: 2px solid #bec2cb;
-  padding-right: 6px;
-}
-
 .main-icon {
   margin: 10px 0;
   object-fit: cover;
   width: 100px;
   height: 100px;
+}
+
+.weather-forecast {
+  border-bottom: 1px solid #f9f7fe;
+  margin: 40px 0;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.forecast-temperature {
+  color: #f65282;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.forecast-temperature-min {
+  margin-left: 10px;
+  opacity: 0.6;
+}
+
+.forecast-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }

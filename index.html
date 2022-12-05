@@ -26,9 +26,7 @@
     <div class="container weather-container">
       <img src="/images/logo.png" class="logo" alt="SheCodes Logo" />
 
-      <div
-        class="mt-5 row align-items-center justify-content-center weather-form"
-      >
+      <div class="mt-5 row align-items-center weather-form">
         <div class="col-9 col-lg-6">
           <form id="search-city">
             <div class="d-flex align-items-center search-box">
@@ -65,13 +63,66 @@
           <div class="col-lg-6 col-md-6 col-sm-8">
             <div class="temperature-container d-flex justify-content-end">
               <img class="main-icon" src="images/rain.webp" />
-              <div>
-                <span class="temperature">2</span
-                ><span id="units">
+              <div class="temperature-units row">
+                <div class="temperature col">2</div>
+                <div class="col units">
                   <a class="unit" href="#" id="celsius">°C</a>
                   <a class="unit" href="#" id="fahrenheit">°F</a>
-                </span>
+                </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="weather-forecast row">
+        <div class="col">
+          <div class="weather-forecast-preview">
+            <div class="forecast-time">Mon</div>
+            <img class="forecast-icon" src="images/clouds.webp" />
+            <div class="forecast-temperature">
+              <span class="forecast-temperature-max">5°</span
+              ><span class="forecast-temperature-min">2°</span>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="weather-forecast-preview">
+            <div class="forecast-time">Tue</div>
+            <img class="forecast-icon" src="images/storm.webp" />
+            <div class="forecast-temperature">
+              <span class="forecast-temperature-max">7°</span
+              ><span class="forecast-temperature-min">4°</span>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="weather-forecast-preview">
+            <div class="forecast-time">Wed</div>
+            <img class="forecast-icon" src="images/sunny-clouds.webp" />
+            <div class="forecast-temperature">
+              <span class="forecast-temperature-max">9°</span
+              ><span class="forecast-temperature-min">5°</span>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="weather-forecast-preview">
+            <div class="forecast-time">Thu</div>
+            <img class="forecast-icon" src="images/sun-showers.webp" />
+            <div class="forecast-temperature">
+              <span class="forecast-temperature-max">9°</span
+              ><span class="forecast-temperature-min">6°</span>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="weather-forecast-preview">
+            <div class="forecast-time">Fri</div>
+            <img class="forecast-icon" src="images/wind.webp" />
+            <div class="forecast-temperature">
+              <span class="forecast-temperature-max">9°</span
+              ><span class="forecast-temperature-min">6°</span>
             </div>
           </div>
         </div>
