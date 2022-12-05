@@ -17,10 +17,38 @@
 "
     />
     <link rel="stylesheet" href="src/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/f6ef93d8b4.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="container weather-container">
-      <h1>Hello World</h1>
+      <img src="/images/logo.png" class="logo" alt="SheCodes Logo" />
+
+      <div
+        class="mt-5 row align-items-center justify-content-center weather-form"
+      >
+        <div class="col-9 col-lg-6">
+          <form id="search-city">
+            <div class="d-flex align-items-center search-box">
+              <i class="fa fa-search search-icon" aria-hidden="true"></i>
+              <input
+                id="city-input"
+                type="text"
+                name="city"
+                placeholder="Enter a city"
+                class="search-input"
+                autofocus
+              />
+            </div>
+          </form>
+        </div>
+
+        <div class="col-3">
+          <a href="" id="current-btn" class="btn btn-primary">Current</a>
+        </div>
+      </div>
     </div>
     <script src="src/app.js"></script>
   </body>
