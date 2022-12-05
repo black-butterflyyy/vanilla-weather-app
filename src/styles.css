@@ -34,6 +34,14 @@ a {
   text-decoration: none;
 }
 
+footer {
+  color: rgba(39, 33, 66, 0.4);
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 40px;
+  text-align: center;
+}
+
 .weather-container {
   width: 70vw;
   background-color: #fff;
