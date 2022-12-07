@@ -39,6 +39,10 @@ function displayTemperature(response) {
 
   const dateElement = document.querySelector("#date-time");
   dateElement.innerHTML = formatDate(response.data.time * 1000);
+
+  const weatherIcon = document.getElementById("weather-icon");
+  weatherIcon.src = response.data.condition.icon_url;
+  weatherIcon.alt = response.data.condition.icon;
 }
 
 axios.get(apiUrl).then(displayTemperature);
