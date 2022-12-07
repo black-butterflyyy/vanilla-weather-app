@@ -1,7 +1,9 @@
-﻿function formatDate(timestamp) {
-  const date = new Date(timestamp);
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
+﻿let celsiusTemperature = null;
+
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
   if (minutes < 10) minutes = `0${minutes}`;
   if (hours < 10) hours = `0${hours}`;
   const daysOfWeek = [
@@ -19,7 +21,8 @@
 
 function displayTemperature(response) {
   const temperatureElement = document.getElementById("weather-temperature");
-  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+  celsiusTemperature = response.data.temperature.current;
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 
   const cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.city;
@@ -55,3 +58,27 @@ function handleForm(event) {
 
 const searchFormElement = document.getElementById("search-form");
 searchFormElement.addEventListener("submit", handleForm);
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  const temperatureElement = document.getElementById("weather-temperature");
+  temperatureElement.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+  celsiusElement.classList.remove("active");
+  fahrenheitElement.classList.add("active");
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  const temperatureElement = document.getElementById("weather-temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  celsiusElement.classList.add("active");
+  fahrenheitElement.classList.remove("active");
+}
+
+const fahrenheitElement = document.getElementById("fahrenheit-link");
+fahrenheitElement.addEventListener("click", displayFahrenheitTemperature);
+
+const celsiusElement = document.getElementById("celsius-link");
+celsiusElement.addEventListener("click", displayCelsiusTemperature);
+
+search("Paris");

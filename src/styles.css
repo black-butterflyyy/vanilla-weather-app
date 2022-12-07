@@ -143,3 +143,12 @@ footer {
   height: 100px;
   object-fit: cover;
 }
+
+.active {
+  color: #212121;
+  cursor: default;
+}
+
+.active:hover {
+  color: #212121;
+}
