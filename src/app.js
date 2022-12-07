@@ -1,8 +1,4 @@
-﻿const apiKey = "c7f07b12bt140d804747bo132a12beeb";
-const city = "tehran";
-const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-
-function formatDate(timestamp) {
+﻿function formatDate(timestamp) {
   const date = new Date(timestamp);
   const hours = date.getHours();
   const minutes = date.getMinutes();
@@ -44,5 +40,18 @@ function displayTemperature(response) {
   weatherIcon.src = response.data.condition.icon_url;
   weatherIcon.alt = response.data.condition.icon;
 }
+function search(city) {
+  const apiKey = "c7f07b12bt140d804747bo132a12beeb";
+  const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
 
-axios.get(apiUrl).then(displayTemperature);
+function handleForm(event) {
+  event.preventDefault();
+  const cityInputElement = document.getElementById("city-input");
+  if (!cityInputElement.value) return;
+  search(cityInputElement.value);
+}
+
+const searchFormElement = document.getElementById("search-form");
+searchFormElement.addEventListener("submit", handleForm);
