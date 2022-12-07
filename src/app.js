@@ -1,6 +1,4 @@
-﻿let celsiusTemperature = null;
-
-function formatDate(timestamp) {
+﻿function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
   let minutes = date.getMinutes();
@@ -43,6 +41,7 @@ function displayTemperature(response) {
   weatherIcon.src = response.data.condition.icon_url;
   weatherIcon.alt = response.data.condition.icon;
 }
+
 function search(city) {
   const apiKey = "c7f07b12bt140d804747bo132a12beeb";
   const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
@@ -55,9 +54,6 @@ function handleForm(event) {
   if (!cityInputElement.value) return;
   search(cityInputElement.value);
 }
-
-const searchFormElement = document.getElementById("search-form");
-searchFormElement.addEventListener("submit", handleForm);
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
@@ -74,6 +70,11 @@ function displayCelsiusTemperature(event) {
   celsiusElement.classList.add("active");
   fahrenheitElement.classList.remove("active");
 }
+
+let celsiusTemperature = null;
+
+const searchFormElement = document.getElementById("search-form");
+searchFormElement.addEventListener("submit", handleForm);
 
 const fahrenheitElement = document.getElementById("fahrenheit-link");
 fahrenheitElement.addEventListener("click", displayFahrenheitTemperature);
