@@ -17,6 +17,48 @@
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  const date = new Date(timestamp * 1000);
+  const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return daysOfWeek[date.getDay()];
+}
+
+function displayForecast(response) {
+  //only for the next 5 days
+  const dailyForecast = response.data.daily.slice(1, 6);
+  let forecastHtml = "";
+
+  dailyForecast.forEach(function (forecastDay, index) {
+    forecastHtml += `  <div class="col">
+          <div class="weather-forecast-preview">
+            <div class="forecast-time">${formatDay(forecastDay.time)}</div>
+            <img class="forecast-icon" src="${
+              forecastDay.condition.icon_url
+            }" alt="${forecastDay.condition.description}" />
+            <div class="forecast-temperature">
+              <span class="forecast-temperature-max">${Math.round(
+                forecastDay.temperature.maximum
+              )}°</span
+              ><span class="forecast-temperature-min">${Math.round(
+                forecastDay.temperature.minimum
+              )}°</span>
+            </div>
+          </div>
+        </div>`;
+  });
+
+  const forecastContainer = document.getElementById("forecast");
+  forecastContainer.innerHTML = forecastHtml;
+}
+
+function receiveForecast(coordinates) {
+  const lat = coordinates.latitude;
+  const lon = coordinates.longitude;
+  const apiKey = "c7f07b12bt140d804747bo132a12beeb";
+  const apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&units=metric&key=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemperature(response) {
   const temperatureElement = document.getElementById("weather-temperature");
   celsiusTemperature = response.data.temperature.current;
@@ -40,6 +82,8 @@ function displayTemperature(response) {
   const weatherIcon = document.getElementById("weather-icon");
   weatherIcon.src = response.data.condition.icon_url;
   weatherIcon.alt = response.data.condition.icon;
+
+  receiveForecast(response.data.coordinates);
 }
 
 function search(city) {
