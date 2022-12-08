@@ -99,31 +99,7 @@ function handleForm(event) {
   search(cityInputElement.value);
 }
 
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  const temperatureElement = document.getElementById("weather-temperature");
-  temperatureElement.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
-  celsiusElement.classList.remove("active");
-  fahrenheitElement.classList.add("active");
-}
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  const temperatureElement = document.getElementById("weather-temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  celsiusElement.classList.add("active");
-  fahrenheitElement.classList.remove("active");
-}
-
-let celsiusTemperature = null;
-
 const searchFormElement = document.getElementById("search-form");
 searchFormElement.addEventListener("submit", handleForm);
-
-const fahrenheitElement = document.getElementById("fahrenheit-link");
-fahrenheitElement.addEventListener("click", displayFahrenheitTemperature);
-
-const celsiusElement = document.getElementById("celsius-link");
-celsiusElement.addEventListener("click", displayCelsiusTemperature);
 
 search("Paris");

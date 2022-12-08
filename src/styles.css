@@ -108,9 +108,6 @@ footer {
   margin-left: 10px;
 }
 
-.units {
-  font-size: 18px;
-}
 .main-icon {
   margin: 10px 0;
   object-fit: cover;
@@ -144,11 +141,7 @@ footer {
   object-fit: cover;
 }
 
-.active {
+.unit {
   color: #212121;
-  cursor: default;
-}
-
-.active:hover {
-  color: #212121;
+  font-size: 18px;
 }
